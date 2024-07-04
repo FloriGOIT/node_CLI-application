@@ -1,3 +1,5 @@
+
+/*
 const readline = require('readline');
 const fs = require('fs').promises;
 const { program } = require('commander');
@@ -7,12 +9,14 @@ program.option(
   'file for saving game results',
   'results.txt',
 );
-program.parse(process.argv);
+
+//program.parse(process.argv);
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+
 
 let count = 0;
 const logFile = program.opts().file;
@@ -63,3 +67,34 @@ const game = () => {
 };
 
 game();
+*/
+//⬆️ Number game
+
+
+const fs = require("fs").promises;
+const {program} = require("commander")
+require("colors")
+
+
+const addTask = async (task, logFile) => {console.log("Task:".blue, task);
+                                          console.log("LogFile:".blue, logFile); 
+                                        
+                                          try {
+                                            await fs.appendFile(logFile, `${task}\n`);
+                                            console.log("Your task was added to the list as per function".yellow);
+                                        } catch (error) {
+                                            console.error("Error writing to the file".red, error);
+                                        }}
+
+
+
+program.option("-f, --file [type]","Task CLI app", "tasks.txt");
+
+program .command("add <task>")
+        .description("A new task should be added")
+        .action(async task => {
+                               const logFile = program.opts().file;
+                               await addTask(task, logFile);
+                               console.log("Your task was added in the list".yellow)
+                              })
+program.parse(process.argv);
