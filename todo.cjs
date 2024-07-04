@@ -95,6 +95,6 @@ program .command("add <task>")
         .action(async task => {
                                const logFile = program.opts().file;
                                await addTask(task, logFile);
-                               console.log("Your task was added in the list".yellow)
+                               console.log("Your task was added in the list okkkkkk".yellow)
                               })
 program.parse(process.argv);
