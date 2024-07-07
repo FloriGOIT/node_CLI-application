@@ -1,17 +1,20 @@
 {
   "name": "node_cli-application",
   "version": "1.0.0",
-  "description": "node-js",
-  "main": "todo.js",
-  "type": "module",
+  "description": "node_cli-application",
+  "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start":"node index.js",
+    "start:dev":"nodemon index.js"
+             },
   "keywords": [],
   "author": "Florentina Vachente <flori@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "nodemon": "^3.1.4",
+    "ws": "^8.18.0"
   }
 }
