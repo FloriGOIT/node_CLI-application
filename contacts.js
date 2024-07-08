@@ -14,8 +14,6 @@ const listContacts = async () =>
   catch(err){console.log("Error when handeling LIST function due to:".red,err)}
 }
 
-
-
 const getContactById = async (contactId) =>
 {
  try{
@@ -23,7 +21,7 @@ const getContactById = async (contactId) =>
      const dataParsed = JSON.parse(data);
      const filteredData = dataParsed.filter(contact => contact.id === contactId);
      if(filteredData.length === 0){console.log("ID contact not found".red); return}
-     else{console.log("Searched ID: ".bgGreen,filteredData[0]); }
+     else{console.log("Searched ID: ".bgGreen,filteredData); }
      }
  catch(err){console.log("Error when handeling GetID function due to:".red,err)}
 }

@@ -4,11 +4,11 @@ const {program} = require("commander")
 
 program.command("list")
        .description("list the list")
-       .action(async () =>{const contactList = await functionalities.listContacts();})
+       .action(async () =>{await functionalities.listContacts();})
 
 program.command("get <contactId>")
        .description("selected contact description")
-       .action(async (contactId) =>{const contactItem = await functionalities.getContactById(contactId)})
+       .action(async (contactId) =>{await functionalities.getContactById(contactId)})
 
 program.command("del <contactId>")
        .description("delete contact from list")
@@ -20,8 +20,8 @@ program.command("add")
        .option("-e, --email <type>","user email")
        .option("-p, --phone <type>","user phone" )
        .action(async (options) => {const { id, name, email, phone } = options;
-                                      const newContact = { id: Date.now().toString(), name, email, phone };
-                                      const xxx = await functionalities.addContact(newContact)
-                                      console.log("New contact was added".green)})
+                                   const newContact = { id: Date.now().toString(), name, email, phone };
+                                   await functionalities.addContact(newContact)
+                                   console.log("New contact was added".green)})
 
 program.parse(process.argv)
